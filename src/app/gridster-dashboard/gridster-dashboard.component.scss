@@ -1,0 +1,14 @@
+:host {
+
+    gridster {
+       display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      
+    }
+  }
+
+  .conatiner{
+      padding-left:40px;
+      width:100%
+  }

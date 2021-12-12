@@ -1,0 +1,84 @@
+.grid-container {
+  padding: 40px;
+  background-color: aqua;
+
+}
+
+  
+// .dashboard {
+//   // height: inherit;
+//   // max-width: 100%;
+  
+//       display: grid;
+//       justify-content: center;
+//       // position: absolute;
+//       // left: 0px;    
+//       grid-template-columns: repeat(4, minmax(180px, 356px));
+//       grid-auto-rows: 136px;
+//       grid-auto-flow: row;
+//       gap: 16px;
+//       //background-color: $lightGray;
+//       padding: 24px;
+//       margin-bottom: 0;
+//       height: inherit;
+//       width: inherit;
+//       &.compact-6 {
+//         grid-template-columns: repeat(6, minmax(160px, 356px));
+//         grid-auto-rows: 128px;
+//       }
+//       &.compact-8 {
+//         grid-template-columns: repeat(8, minmax(120px, 356px));
+//         grid-auto-rows: 128px;
+//       }
+//       &.auto {
+//         grid-template-columns: repeat(4, 1fr);
+//         padding: 16px;
+//         .widget {
+//           min-width: none;
+//         }
+//       }
+//   }
+
+
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(180px, 356px));
+  gap: 16px;
+  grid-auto-rows: minmax(50px, auto);
+ // grid-auto-rows: 40px;
+  
+  grid-auto-flow: row;
+  height: inherit;
+  width: inherit;
+  padding: 24px;
+
+}
+
+.widget {
+  border-radius: 12px;
+  background: #ffffff;
+  max-width: 100%;
+  // display: block;
+}
+.workcard{
+  grid-column-end: span 1;
+  grid-row-end: span 6;
+  padding: 0
+}
+
+.notifications{
+  grid-column-end: span 1;
+  grid-row-end: span 4;
+  padding: 0
+}
+
+.myconnection{
+  grid-column-end: span 1;
+  grid-row-end: span 2;
+  padding: 0;
+  background:yellow
+}
+.sunny{  grid-column-end: span 1;
+  grid-row-end: span 2;
+  padding: 0;}
