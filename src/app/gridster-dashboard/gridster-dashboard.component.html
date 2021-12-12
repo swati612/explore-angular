@@ -1,26 +1,48 @@
 <!-- <gridster [options]="options">
     <gridster-item  *ngFor="let widget of dashboard; let i = index" [item]="widget"></gridster-item>
 </gridster> -->
-
+<!-- 
 <gridster [options]="options">
   <div *ngFor="let widget of widgets">
   <ng-container [ngSwitch]="widget.widgetType">
-  <gridster-item  *ngSwitchCase="'workcard'" [item]="{cols: 2, rows: 1, y: 0, x: 0}">
-   helllo
-  </gridster-item>
-  <gridster-item *ngSwitchCase="'myconnection'" [item]="{cols: 1, rows: 1, y: 0, x: 0}">
-    <div>
+    <gridster-item  *ngSwitchCase="'workcard'" [item]="{cols: 2, rows: 1, y: 0, x: 0}">
+    helllo
+    </gridster-item>
+    <gridster-item *ngSwitchCase="'myconnection'" [item]="{cols: 1, rows: 1, y: 0, x: 0}">
+      <div>
+        {{widget.title}}
+      </div>
+    </gridster-item>   
+    <gridster-item  *ngSwitchCase="'sunny'" [item]="{cols: 1, rows: 1, y: 0, x: 0}">
       {{widget.title}}
-    </div>
-  </gridster-item>   
-  <gridster-item  *ngSwitchCase="'sunny'" [item]="{cols: 1, rows: 1, y: 0, x: 0}">
-    {{widget.title}}
-  </gridster-item>
+    </gridster-item>
 
-  <gridster-item *ngSwitchCase="'notifications'" [item]="{cols: 1, rows: 2, y: 0, x: 0}">
-    {{widget.title}}
-  </gridster-item>   
+    <gridster-item *ngSwitchCase="'notifications'" [item]="{cols: 1, rows: 2, y: 0, x: 0}">
+      {{widget.title}}
+    </gridster-item>   
+</ng-container>  
+</div>            
+</gridster> -->
 
+
+<gridster [options]="options">
+  <div *ngFor="let widget of widgets">
+  <ng-container [ngSwitch]="widget.type">
+    <gridster-item  *ngSwitchCase="'contracted-price-variance'" [item]="{cols:widget.cols , rows: widget.rows, y: 0, x: 0}">
+      helllo
+    </gridster-item>
+    <gridster-item *ngSwitchCase="'contracted-vs-non-contracted'" [item]="{cols: widget.cols, rows:widget.rows, y: 0, x: 0}">
+      <div>
+         Hello
+      </div>
+    </gridster-item>   
+    <gridster-item  *ngSwitchCase="'location-map'" [item]="{cols: widget.cols, rows:widget.rows, y: 0, x: 0}">
+     Location MAp
+    </gridster-item>
+
+    <gridster-item *ngSwitchCase="'net-term'" [item]="{cols: widget.cols, rows:widget.rows, y: 0, x: 0}">
+     Net Terms
+    </gridster-item>   
 </ng-container>  
 </div>            
 </gridster>
