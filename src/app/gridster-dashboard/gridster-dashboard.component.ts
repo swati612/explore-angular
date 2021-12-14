@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CompactType, DisplayGrid, GridsterConfig, GridsterItem, GridType } from 'angular-gridster2';
+import { CompactType, DisplayGrid, GridsterConfig, GridsterItem, GridsterItemComponentInterface, GridType } from 'angular-gridster2';
 
 @Component({
   selector: 'app-gridster-dashboard',
@@ -10,7 +10,7 @@ export class GridsterDashboardComponent implements OnInit {
 
   options: GridsterConfig = {
     gridType: GridType.ScrollVertical,
-      compactType: CompactType.None,
+    compactType: CompactType.None,
     draggable: {
       enabled: true
     },
@@ -28,9 +28,11 @@ export class GridsterDashboardComponent implements OnInit {
     disableWarnings: false,
     scrollToNewItems: false,
     useTransformPositioning: true,
-    maxCols: 8,
-    minCols:6,
-    margin: 10
+    maxCols: 4,
+    minCols:4,
+    margin: 10,
+    itemChangeCallback: GridsterDashboardComponent.itemChange,
+    itemInitCallback: GridsterDashboardComponent.itemInit,
   };
   dashboard = [  
     {cols: 2, rows: 1, y: 0, x: 0},
@@ -1939,7 +1941,7 @@ export class GridsterDashboardComponent implements OnInit {
       }
     ]
    
-    arr.map((res:any)=>{
+   arr.map((res:any)=>{
       if(res.classes ==  "widget-one-by-two"){
          res["cols"]=1,
          res["rows"]=2,
@@ -1959,7 +1961,28 @@ export class GridsterDashboardComponent implements OnInit {
          res["y"]= 0
       }
    })
-
+   
    return arr ;
   }
+
+    changedOptions(): void {
+    if (this.options.api && this.options.api.optionsChanged) {
+      this.options.api.optionsChanged();
+    }
+  }
+
+
+  static itemChange(item: GridsterItem, itemComponent: GridsterItemComponentInterface): void {
+    console.info('itemChanged', item.x, itemComponent);
+  }
+
+  static itemResize(item: GridsterItem, itemComponent: GridsterItemComponentInterface): void {
+    //console.info('itemResized', item, itemComponent);
+  }
+
+  static itemInit(item: GridsterItem, itemComponent: GridsterItemComponentInterface): void {
+    // This  Method Call like NgOninit
+    //console.info('itemInitialized', item, itemComponent);
+  }
+
 }
